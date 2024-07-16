@@ -17,7 +17,7 @@ function M.execute_test_at_cursor()
 
     local test_name = vim.treesitter.get_node_text(node, bufnr)
 
-    if util.is_slected_test_valid(test_name) then
+    if util.is_selected_test_valid(test_name) then
         execute_test(test_name)
     end
 end

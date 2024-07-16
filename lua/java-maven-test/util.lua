@@ -13,13 +13,13 @@ function M.get_test_methods()
           (identifier) @test_name)
     ]]
 
-    local results = {}
     local ts_query = vim.treesitter.query.parse("java", query)
 
+    local results = {}
     for id, node in ts_query:iter_captures(tree:root(), bufnr, 0, -1) do
         if ts_query.captures[id] == "test_name" then
-            local method_name = vim.treesitter.get_node_text(node, bufnr)
-            table.insert(results, method_name)
+            local test_name = vim.treesitter.get_node_text(node, bufnr)
+            table.insert(results, test_name)
         end
     end
 
@@ -49,7 +49,7 @@ function M.get_java_class()
 
 end
 
-function M.is_slected_test_valid(str)
+function M.is_selected_test_valid(str)
     local is_one_word = not string.match(str, "%s")
     local contains_test_keyword = string.match(str, "%l*test%u*") or string.match(str, "%u*Test%l*")
 
