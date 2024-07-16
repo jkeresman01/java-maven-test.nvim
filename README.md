@@ -1,10 +1,9 @@
 ## The problem :warning: ##
-
-You open your favorite editor, Neovim, you wan't to execute some test without leaving your favorite enivoronment, but this seems impossible. 
+You open Neovim, your preferred editor, with the intention of running tests without having to leave your preferred environment, yet this appears unachievable.
 
 ## The solution :trophy: ##
 
-This Neovim plugin, Java Maven Test, integrates with telescope.nvim and nvim-treesitter to enable interactive fuzzy finding and executing Java tests within a class.
+This Neovim plugin, Java Maven Test, integrates with telescope.nvim and nvim-treesitter to facilitate interactive fuzzy searching and execution of Java tests within a class.
 
 [![asciicast](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4.svg)](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4)
 
