@@ -8,7 +8,7 @@ This Neovim plugin, Java Maven Test, integrates with telescope.nvim and nvim-tre
 [![asciicast](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4.svg)](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4)
 
 
-### Installation :star: ###
+### Installation :star: ###<CR>
 * Make sure you have Neovim v0.9.0 or greater. :exclamation:
 * Dependecies: treesiter && telescope && plenary (telescope dep)
 * Install using you plugin manager
@@ -55,5 +55,5 @@ Same stuff presented in a table (easier to read):
 | Keybind       | Action                                                             |
 |---------------|--------------------------------------------------------------------|
 | `<leader>rt`  | Execute test under the cursor                                      |
-| `<leader>c`   | Execute all tests in currently opened class                        |
-| `<CR>`        | Fuzzy find trough tests in a given class and execute selected one  |
+| `<leader>ra`  | Execute all tests in currently opened class                        |
+| `<leader>ft`  | Fuzzy find trough tests in a given class and execute selected one  |
