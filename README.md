@@ -8,7 +8,7 @@ This Neovim plugin, Java Maven Test, integrates with telescope.nvim and nvim-tre
 [![asciicast](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4.svg)](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4)
 
 
-### Installation :star: ###<CR>
+### Installation :star: ###
 * Make sure you have Neovim v0.9.0 or greater. :exclamation:
 * Dependecies: treesiter && telescope && plenary (telescope dep)
 * Install using you plugin manager
