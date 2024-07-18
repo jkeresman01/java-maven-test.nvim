@@ -45,12 +45,11 @@ Set the keymapings as you see fit, here is one example:
 local tests = require("java-maven-test")
 local mvn   = require("java-maven-test.mvn")
 
-vim.keymap.set("n", "<leader>rt", function() mvn.execute_test_at_cursor() end)        -- execute test under the cursor
-vim.keymap.set("n", "<leader>ra", function() mvn.execute_all_tests_in_class() end)    -- execute all tests in currently opened class
-vim.keymap.set("n", "<leader>ft", function() tests.find() end)                        -- fuzzy find trough tests in a given class and execute selected one
+vim.keymap.set("n", "<leader>rt", function() mvn.execute_test_at_cursor() end)     
+vim.keymap.set("n", "<leader>ra", function() mvn.execute_all_tests_in_class() end)  
+vim.keymap.set("n", "<leader>ft", function() tests.find() end)                  
 ```
-
-Same stuff presented in a table (easier to read):
+***
 
 | Keybind       | Action                                                             |
 |---------------|--------------------------------------------------------------------|
