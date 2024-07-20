@@ -7,11 +7,18 @@ This Neovim plugin, Java Maven Test, integrates with telescope.nvim and nvim-tre
 
 [![asciicast](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4.svg)](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4)
 
+### Functionalities :pick: ###
+
+- [x] Execute test case under the cursor
+- [x] Execute all test in a given class
+- [x] Fuzzy find trough all tests in a class and pick which one to execute
 
 ### Installation :star: ###
 * Make sure you have Neovim v0.9.0 or greater. :exclamation:
 * Dependecies: treesiter && telescope && plenary (telescope dep)
 * Install using you plugin manager
+
+***
 
 `Vim-Plug`  
 ```lua
@@ -36,8 +43,9 @@ use {
 
  use 'jkeresman01/java-maven-test.nvim'
 ```
+***
 
-## Keymapings :musical_keyboard: ##
+## Key - mapings :musical_keyboard: ##
 
 Set the keymapings as you see fit, here is one example:
 
@@ -51,7 +59,7 @@ vim.keymap.set("n", "<leader>ft", function() tests.find() end)
 ```
 ***
 
-| Keybind       | Action                                                             |
+| Key - map     | Action                                                             |
 |---------------|--------------------------------------------------------------------|
 | `<leader>rt`  | Execute test under the cursor                                      |
 | `<leader>ra`  | Execute all tests in currently opened class                        |
