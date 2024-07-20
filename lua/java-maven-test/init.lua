@@ -1,13 +1,13 @@
 local M = {}
 
-local util = require('java-maven-test.util')
 local mvn = require('java-maven-test.mvn')
+local util = require('java-maven-test.util')
 
 local action_state = require('telescope.actions.state')
 local actions = require('telescope.actions')
 local finders = require('telescope.finders')
-local pickers  = require('telescope.pickers')
-local config   = require('telescope.config')
+local pickers = require('telescope.pickers')
+local config = require('telescope.config')
 
 function M.find()
     local tests = util.get_test_methods()
@@ -46,7 +46,7 @@ function M.find()
                 end
 
             end)
-        return true
+            return true
         end,
 
     }):find()
