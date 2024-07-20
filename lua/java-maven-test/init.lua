@@ -44,7 +44,6 @@ function M.find()
                 if selection then
                     mvn.execute_selected_test(selection.value)
                 end
-
             end)
             return true
         end,
