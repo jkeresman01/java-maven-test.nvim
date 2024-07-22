@@ -15,15 +15,15 @@ function M.get_test_methods()
 
     local ts_query = vim.treesitter.query.parse("java", query)
 
-    local results = {}
+    local tests = {}
     for id, node in ts_query:iter_captures(tree:root(), bufnr, 0, -1) do
         if ts_query.captures[id] == "test_name" then
             local test_name = vim.treesitter.get_node_text(node, bufnr)
-            table.insert(results, test_name)
+            table.insert(tests, test_name)
         end
     end
 
-    return results
+    return tests
 end
 
 
