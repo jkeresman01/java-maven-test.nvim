@@ -25,11 +25,11 @@ function M.find()
         finder = finders.new_table {
             results = tests,
 
-            entry_maker = function(test)
+            entry_maker = function(test_name)
                 return {
-                    value   = test,
-                    display = test,
-                    ordinal = test
+                    value   = test_name,
+                    display = test_name,
+                    ordinal = test_name
                 }
             end
         },
@@ -39,10 +39,10 @@ function M.find()
         attach_mappings = function(prompt_bufnr)
             actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
-                local selection = action_state.get_selected_entry()
+                local selected_test_case = action_state.get_selected_entry()
 
-                if selection then
-                    mvn.execute_selected_test(selection.value)
+                if selected_test_case then
+                    mvn.execute_selected_test(selected_test_case.value)
                 end
             end)
             return true

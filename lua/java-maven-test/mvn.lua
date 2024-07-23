@@ -5,9 +5,10 @@ local M = {}
 
 local function execute_test(test_name)
     local class_name = util.get_java_class()
-    local mvn_test_command = string.format('mvn test -Dtest=%s#%s', class_name, test_name)
 
     vim.cmd('vsplit term://bash')
+
+    local mvn_test_command = string.format('mvn test -Dtest=%s#%s', class_name, test_name)
     vim.fn.termopen(mvn_test_command)
 end
 
@@ -17,7 +18,7 @@ function M.execute_test_at_cursor()
 
     local test_name = vim.treesitter.get_node_text(node, bufnr)
 
-    if util.is_selected_test_valid(test_name) then
+    if util.is_test_name_valid(test_name) then
         execute_test(test_name)
     end
 end

@@ -49,9 +49,9 @@ function M.get_java_class()
 
 end
 
-function M.is_selected_test_valid(str)
-    local is_one_word = not string.match(str, "%s")
-    local contains_test_keyword = string.match(str, "%l*test%u*") or string.match(str, "%u*Test%l*")
+function M.is_test_name_valid(test_name)
+    local is_one_word = not string.match(test_name, "%s")
+    local contains_test_keyword = string.match(test_name, "%l*test%u*") or string.match(test_name, "%u*Test%l*")
 
     return is_one_word and contains_test_keyword
 end
