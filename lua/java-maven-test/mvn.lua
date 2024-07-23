@@ -1,5 +1,5 @@
 local util = require("java-maven-test.util")
-local ts_utils = require('nvim-treesitter.ts_utils')
+local ts_utils = require("nvim-treesitter.ts_utils")
 
 local M = {}
 
@@ -8,7 +8,7 @@ local function execute_test(test_name)
 
     vim.cmd('vsplit term://bash')
 
-    local mvn_test_command = string.format('mvn test -Dtest=%s#%s', class_name, test_name)
+    local mvn_test_command = string.format("mvn test -Dtest=%s#%s", class_name, test_name)
     vim.fn.termopen(mvn_test_command)
 end
 
