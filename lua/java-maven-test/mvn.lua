@@ -6,7 +6,7 @@ local M = {}
 local function execute_test(test_name)
     local class_name = util.get_java_class()
 
-    vim.cmd('vsplit term://bash')
+    vim.cmd("vsplit term://bash")
 
     local mvn_test_command = string.format("mvn test -Dtest=%s#%s", class_name, test_name)
     vim.fn.termopen(mvn_test_command)
@@ -30,7 +30,7 @@ function M.execute_selected_test(test_name)
 end
 
 function M.execute_all_tests_in_class()
-    local test_methods = util.get_test_methods();
+    local test_methods = util.get_test_methods()
 
     if not next(test_methods) == nil then
         execute_test("")

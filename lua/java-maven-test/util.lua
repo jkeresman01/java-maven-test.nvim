@@ -22,10 +22,8 @@ function M.get_test_methods()
             table.insert(test_method_names, test_name)
         end
     end
-;
     return test_method_names
 end
-
 
 function M.get_java_class()
     local bufnr = vim.api.nvim_get_current_buf()
@@ -46,12 +44,10 @@ function M.get_java_class()
             return class_name
         end
     end
-
 end
 
 function M.is_test_name_valid(test_name)
-    return string.match(test_name, "%l*test%u*") or
-           string.match(test_name, "%u*Test%l*")
+    return string.match(test_name, "%l*test%u*") or string.match(test_name, "%u*Test%l*")
 end
 
 return M
