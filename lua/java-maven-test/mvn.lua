@@ -24,11 +24,17 @@ function M.execute_test_at_cursor()
 end
 
 function M.execute_selected_test(test_name)
-    execute_test(test_name)
+    if util.is_test_name_valid(test_name) then
+        execute_test(test_name)
+    end
 end
 
 function M.execute_all_tests_in_class()
-    execute_test("")
+    local test_methods = util.get_test_methods();
+
+    if not next(test_methods) == nil then
+        execute_test("")
+    end
 end
 
 return M
