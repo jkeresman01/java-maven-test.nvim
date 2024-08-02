@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  build:
-    name: Build
+  format:
+    name: format
     runs-on: ubuntu-latest
 
     steps:
