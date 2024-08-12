@@ -1,5 +1,5 @@
 ## The problem :warning: ##
-You open Neovim, your preferred editor, with the intention of running tests without having to leave your preferred environment, yet this appears unachievable.
+You open Neovim, your preferred editor, with the intention of running tests without having to leave your preferred environment.
 
 ## The solution :trophy: ##
 
