@@ -1,10 +1,13 @@
 <div align="center">
 
   <h1>java-maven-test.nvim</h1>
+  <p>Neovim plugin that allows you to easily search and execute your tests within Neovim </p>
 
 [![Lua](https://img.shields.io/badge/Lua-blue.svg?style=for-the-badge&logo=lua)](http://www.lua.org)
 [![Neovim 0.10](https://img.shields.io/badge/Neovim%200.10-green.svg?style=for-the-badge&logo=neovim)](https://neovim.io)
 ![Work In Progress](https://img.shields.io/badge/Work%20In%20Progress-orange?style=for-the-badge)
+
+</div>
 
 ## The problem :warning: ##
 You open Neovim, your preferred editor, with the intention of running tests without having to leave your preferred environment.
