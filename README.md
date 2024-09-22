@@ -32,7 +32,7 @@ This Neovim plugin, java-maven-test.nvim, integrates with telescope.nvim and nvi
 - [x] Execute all test in a given class
 - [x] Fuzzy find trough all tests in a class and pick which one to execute
 
-### Installation :star: <a name="<a name="installation"></a>"> ###
+### Installation :star: <a name="installation"></a> ###
 * Make sure you have Neovim v0.9.0 or greater. :exclamation:
 * Dependecies: treesiter && telescope && plenary (telescope dep)
 * Install using you plugin manager
