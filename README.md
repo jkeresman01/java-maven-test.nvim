@@ -1,7 +1,7 @@
 <div align="center">
 
   <h1>java-maven-test.nvim</h1>
-  <p>Neovim plugin that allows you to easily search and execute your tests within Neovim </p>
+  <h6>Neovim plugin that allows you to easily search and execute your tests within Neovim </h6>
 
 [![Lua](https://img.shields.io/badge/Lua-blue.svg?style=for-the-badge&logo=lua)](http://www.lua.org)
 [![Neovim 0.10](https://img.shields.io/badge/Neovim%200.10-green.svg?style=for-the-badge&logo=neovim)](https://neovim.io)
@@ -9,22 +9,30 @@
 
 </div>
 
-## The problem :warning: ##
+## Table of Contents
+
+- [The problem](#problem)
+- [The solution](#solution)
+- [Functionalities](#functionalities)
+- [Installation](#installation)
+- [Key - mappings](#keymapings)
+
+## The problem :warning: <a name="problem"></a> ##
 You open Neovim, your preferred editor, with the intention of running tests without having to leave your preferred environment.
 
-## The solution :trophy: ##
+## The solution :trophy: <a name="solution"></a> ##
 
 This Neovim plugin, Java Maven Test, integrates with telescope.nvim and nvim-treesitter to facilitate interactive fuzzy searching and execution of Java tests within a class.
 
 [![asciicast](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4.svg)](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4)
 
-### Functionalities :pick: ###
+### Functionalities :pick: <a name="functionalities"></a> ###
 
 - [x] Execute test case under the cursor
 - [x] Execute all test in a given class
 - [x] Fuzzy find trough all tests in a class and pick which one to execute
 
-### Installation :star: ###
+### Installation :star: <a name="<a name="installation"></a>"></a> ###
 * Make sure you have Neovim v0.9.0 or greater. :exclamation:
 * Dependecies: treesiter && telescope && plenary (telescope dep)
 * Install using you plugin manager
@@ -56,7 +64,7 @@ use {
 ```
 ***
 
-## Key - mapings :musical_keyboard: ##
+## Key - mapings :musical_keyboard: <a name="keymapings"></a> ##
 
 Set the keymapings as you see fit, here is one example:
 
