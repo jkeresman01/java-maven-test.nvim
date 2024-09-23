@@ -3,7 +3,7 @@ local ts_utils = require("nvim-treesitter.ts_utils")
 
 local M = {}
 
--- Executes a Maven test command for a specific test function within a Java class.
+-- Executes a Maven test command for a specific test method within a Java class.
 --
 -- @param test_name (string) - The name of the test method
 local function execute_test(test_name)
