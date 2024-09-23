@@ -1,5 +1,9 @@
 local M = {}
 
+-- Retrieves all test methods from the current Java file.
+-- Parses the buffer using Treesitter and extracts methods annotated with @Test.
+-- 
+-- @return (table) - A list of test method names.
 function M.get_test_methods()
     local bufnr = vim.api.nvim_get_current_buf()
     local parser = vim.treesitter.get_parser(bufnr, "java")
@@ -25,6 +29,10 @@ function M.get_test_methods()
     return test_method_names
 end
 
+-- Retrieves the class name from the current Java class.
+-- Parses the buffer using Treesitter and extracts the name of the class.
+--
+-- @return (string) - The name of the Java class.
 function M.get_java_class()
     local bufnr = vim.api.nvim_get_current_buf()
     local parser = vim.treesitter.get_parser(bufnr, "java")
@@ -46,8 +54,14 @@ function M.get_java_class()
     end
 end
 
+-- Validates the given test name to match a specific pattern.
+--
+-- @param test_name (string) - The name of the test function to validate.
+--
+-- @return (boolean) - True if the test name is valid, false otherwise
 function M.is_test_name_valid(test_name)
     return string.match(test_name, "%l*test%u*") or string.match(test_name, "%u*Test%l*")
 end
 
 return M
+
