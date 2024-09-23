@@ -75,5 +75,14 @@ function M.get_java_class()
     return get_captured_nodes(bufnr, tree, class_name_query, "class_name")[1];
 end
 
+-- Validates the given test name to match a specific pattern.
+--
+-- @param test_name (string) - The name of the test function to validate.
+--
+-- @return (boolean) - True if the test name is valid, false otherwise
+function M.is_test_name_valid(test_name)
+    return string.match(test_name, "%l*test%u*") or string.match(test_name, "%u*Test%l*")
+end
+
 return M
 
