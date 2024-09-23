@@ -46,4 +46,3 @@ function M.execute_all_tests_in_class()
 end
 
 return M
-

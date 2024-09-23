@@ -2,7 +2,7 @@ local M = {}
 
 -- Retrieves all test methods from the current Java file.
 -- Parses the buffer using Treesitter and extracts methods annotated with @Test.
--- 
+--
 -- @return (table) - A list of test method names.
 function M.get_test_methods()
     local bufnr = vim.api.nvim_get_current_buf()
@@ -64,4 +64,3 @@ function M.is_test_name_valid(test_name)
 end
 
 return M
-
