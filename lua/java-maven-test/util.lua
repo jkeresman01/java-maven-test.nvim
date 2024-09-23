@@ -13,7 +13,7 @@ end
 -- @param language (string)
 --
 -- @return  - The Tree-sitter parser.
-local function get_parser(bufnr  , language)
+local function get_parser(bufnr, language)
     return vim.treesitter.get_parser(bufnr, language)
 end
 
@@ -72,7 +72,7 @@ function M.get_java_class()
         )
     ]]
 
-    return get_captured_nodes(bufnr, tree, class_name_query, "class_name")[1];
+    return get_captured_nodes(bufnr, tree, class_name_query, "class_name")[1]
 end
 
 -- Validates the given test name to match a specific pattern.
@@ -85,4 +85,3 @@ function M.is_test_name_valid(test_name)
 end
 
 return M
-
