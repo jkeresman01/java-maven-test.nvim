@@ -1,82 +1,48 @@
+local util = require("java-maven-test.util")
+local ts_utils = require("nvim-treesitter.ts_utils")
+
 local M = {}
 
--- Helper function to get the current buffer number.
+-- Executes a Maven test command for a specific test function within a Java class.
 --
--- @return (number) - The current buffer number.
-local function get_current_buffer()
-    return vim.api.nvim_get_current_buf()
+-- @param test_name (string) - The name of the test method
+local function execute_test(test_name)
+    local class_name = util.get_java_class()
+
+    vim.cmd("vsplit term://bash")
+
+    local mvn_test_command = string.format("mvn test -Dtest=%s#%s", class_name, test_name)
+    vim.fn.termopen(mvn_test_command)
 end
 
--- Helper function to get a Tree-sitter parser for the given buffer and language.
---
--- @param bufnr (number) - The buffer number.
--- @param lang (string) - The language for the Tree-sitter parser.
---
--- @return (userdata) - The Tree-sitter parser.
-local function get_parser(bufnr, lang)
-    return vim.treesitter.get_parser(bufnr, lang)
-end
+-- Executes the test method at the current cursor position in the buffer.
+-- Utilizes Treesitter to identify the node (test method) under the cursor.
+function M.execute_test_at_cursor()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local node = ts_utils.get_node_at_cursor()
 
--- Helper function to execute a Tree-sitter query and return captured nodes.
---
--- @param bufnr (number) - The buffer number.
--- @param tree (userdata) - The parsed syntax tree.
--- @param query_str (string) - The Tree-sitter query string.
--- @param capture_name (string) - The name of the capture to return.
---
--- @return (table) - A list of captured nodes' text.
-local function get_captured_nodes(bufnr, tree, query_str, capture_name)
-    local query = vim.treesitter.query.parse("java", query_str)
-    local captured_texts = {}
+    local test_name = vim.treesitter.get_node_text(node, bufnr)
 
-    for id, node in query:iter_captures(tree:root(), bufnr, 0, -1) do
-        if query.captures[id] == capture_name then
-            local text = vim.treesitter.get_node_text(node, bufnr)
-            table.insert(captured_texts, text)
-        end
+    if util.is_test_name_valid(test_name) then
+        execute_test(test_name)
     end
-
-    return captured_texts
 end
 
--- Retrieves all test methods from the current Java file.
--- Parses the buffer using Tree-sitter and extracts methods annotated with @Test.
+-- Executes a specific test method by its name.
 --
--- @return (table) - A list of test method names.
-function M.get_test_methods()
-    local bufnr = get_current_buffer()
-    local parser = get_parser(bufnr, "java")
-    local tree = parser:parse()[1]
-
-    local test_methods_query = [[
-        (method_declaration
-          (modifiers
-            (marker_annotation
-              (identifier) @annotation (#eq? @annotation "Test")))
-          (identifier) @test_name)
-    ]]
-
-    return get_captured_nodes(bufnr, tree, test_methods_query, "test_name")
+-- @param test_name (string) - The name of the test method to run.
+function M.execute_selected_test(test_name)
+    if util.is_test_name_valid(test_name) then
+        execute_test(test_name)
+    end
 end
 
--- Retrieves the class name from the current Java class.
--- Parses the buffer using Tree-sitter and extracts the name of the class.
---
--- @return (string) - The name of the Java class.
-function M.get_java_class()
-    local bufnr = get_current_buffer()
-    local parser = get_parser(bufnr, "java")
-    local tree = parser:parse()[1]
-
-    local class_name_query = [[
-        (class_declaration
-          name: (identifier) @class_name
-        )
-    ]]
-
-    local class_names = get_captured_nodes(bufnr, tree, class_name_query, "class_name")
-    return class_names[1]
+-- Executes all test functions within the current Java class.
+function M.execute_all_tests_in_class()
+    local test_methods = util.get_test_methods()
+    if not next(test_methods) == nil then
+        execute_test("")
+    end
 end
 
 return M
-
