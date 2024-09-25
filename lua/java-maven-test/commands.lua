@@ -11,14 +11,12 @@ function M.register()
         desc = "Run Java test picker",
     })
 
-    -- Command to execute the test at the cursor position
     vim.api.nvim_create_user_command("MavenTestAtCursor", function()
         mvn.execute_test_at_cursor()
     end, {
         desc = "Execute test at cursor position",
     })
 
-    -- Command to execute all tests in the current Java class
     vim.api.nvim_create_user_command("MavenTestAllInClass", function()
         mvn.execute_all_tests_in_class()
     end, {
