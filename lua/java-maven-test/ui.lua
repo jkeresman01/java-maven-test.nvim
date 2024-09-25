@@ -88,4 +88,5 @@ function M.select_test_to_execute()
     pickers.new(opts, get_picker_options(tests)):find()
 end
 
+
 return M
