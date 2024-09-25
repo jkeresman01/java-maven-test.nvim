@@ -28,7 +28,7 @@ This Neovim plugin, java-maven-test.nvim, integrates with telescope.nvim and nvi
 
 [![asciicast](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4.svg)](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4)
 
-## Repository structure :open_file_folder: <a name="functionalities"></a> ##
+## Repository structure :open_file_folder: <a name="#repo-structure"></a> ##
 
 ```bash
 
@@ -51,6 +51,7 @@ java-maven-test.nvim/
 - [x] Execute test case under the cursor
 - [x] Execute all test in a given class
 - [x] Fuzzy find trough all tests in a class and pick which one to execute
+***
 
 ## Installation :star: <a name="installation"></a> ##
 * Make sure you have Neovim v0.9.0 or greater. :exclamation:
@@ -106,9 +107,9 @@ Set the keymapings as you see fit, here is one setup example:
 require('java-maven-test').setup()
 
 -- Define key mappings for executing tests
-vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>MavenTest<CR>')
-vim.api.nvim_set_keymap('n', '<leader>rt', '<cmd>MavenTestAtCursor<CR>')
-vim.api.nvim_set_keymap('n', '<leader>ra', '<cmd>MavenTestAllInClass<CR>')
+vim.keymap.set("n", "<leader>ft", "<cmd>MavenTest<CR>")
+vim.keymap.set("n", "<leader>rt", "<cmd>MavenTestAtCursor<CR>")
+vim.keymap.set("n", "<leader>ra", "<cmd>MavenTestAllInClass<CR>")
 
 ```
 ***
