@@ -6,7 +6,7 @@ local M = {}
 
 -- Executes a Maven test command for a specific test method within a Java class.
 --
--- @param test_name: The name of the test method
+-- @param test_name: The name of the test method which to execute
 local function execute_test(test_name)
     local class_name = util.get_java_class()
 
@@ -18,7 +18,6 @@ end
 
 
 -- Executes the test method at the current cursor position in the buffer.
--- Utilizes Treesitter to identify the node (test method) under the cursor.
 function M.execute_test_at_cursor()
     local bufnr = vim.api.nvim_get_current_buf()
     local node = ts_utils.get_node_at_cursor()
@@ -38,5 +37,6 @@ function M.execute_all_tests_in_class()
         execute_test("")
     end
 end
+
 
 return M

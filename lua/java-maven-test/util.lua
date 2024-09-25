@@ -90,4 +90,5 @@ function M.is_test_name_valid(test_name)
     return string.match(test_name, "%l*test%u*") or string.match(test_name, "%u*Test%l*")
 end
 
+
 return M

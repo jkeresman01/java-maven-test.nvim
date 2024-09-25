@@ -10,7 +10,7 @@ local util = require("java-maven-test.util")
 local M = {}
 
 
--- Helper function to create test entries for the picker.
+-- Function to create test entries for the picker.
 --
 -- @param test_name: The name of the test to create an entry for.
 --
@@ -24,9 +24,7 @@ local function create_entry(test_name)
 end
 
 
--- Helper function to execute the selected test case.
--- This function retrieves the selected test entry from the prompt buffer and
--- calls the Maven module to execute the test.
+-- Function to execute the selected test case.
 --
 -- @param prompt_bufnr: The buffer number for the current prompt.
 local function execute_selected_test(prompt_bufnr)
@@ -39,7 +37,7 @@ local function execute_selected_test(prompt_bufnr)
 end
 
 
--- Helper function to configure the layout for the picker.
+-- Function to configure the layout for the picker.
 --
 -- @return: A table containing the height and width configuration for the layout.
 local function get_layout_config()
@@ -52,9 +50,7 @@ local function get_layout_config()
 end
 
 
--- Helper function to create picker options.
--- This function generates the configuration needed for the Telescope picker, including
--- finder, sorter, and mappings for handling user input.
+-- Function to create picker options.
 --
 -- @param tests: A list of test method names to display in the picker.
 --
@@ -80,8 +76,7 @@ local function get_picker_options(tests)
 end
 
 
--- Main function to find and display test cases.
--- This function retrieves test methods, configures the picker options, and launches the picker.
+-- Function to find and display test cases.
 function M.select_test_to_execute()
     local tests = util.get_test_methods()
     local opts = get_layout_config()
