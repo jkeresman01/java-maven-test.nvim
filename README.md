@@ -58,7 +58,6 @@ java-maven-test.nvim/
 * Dependecies: treesiter && telescope && plenary (telescope dep)
 * Install using you plugin manager
 
-***
 
 `Vim-Plug`  
 ```lua
@@ -98,7 +97,7 @@ Following commands have been exposed to Neovim:
 
 ```
 
-## Setup  :musical_keyboard: <a name="setup"></a> ##
+## Setup :wrench: <a name="setup"></a> ##
 
 Set the keymapings as you see fit, here is one setup example:
 
