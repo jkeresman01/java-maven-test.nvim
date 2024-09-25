@@ -1,12 +1,12 @@
 local mvn = require("java-maven-test.mvn")
-local tests = require("java-maven-test.find")
+local ui = require("java-maven-test.ui")
 
 local M = {}
 
 -- Function that registers all the commands exposed to Neovim (MavenTest, MavenTestAtCursor, MavenTestAllInClass)
 function M.register()
     vim.api.nvim_create_user_command("MavenTest", function()
-        tests.find()
+        ui.select_test_to_execute()
     end)
 
     vim.api.nvim_create_user_command("MavenTestAtCursor", function()

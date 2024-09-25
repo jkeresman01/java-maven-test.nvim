@@ -77,7 +77,7 @@ end
 
 -- Main function to find and display test cases.
 -- This function retrieves test methods, configures the picker options, and launches the picker.
-function M.find()
+function M.select_test_to_execute()
     local tests = util.get_test_methods()
     local opts = get_layout_config()
     pickers.new(opts, get_picker_options(tests)):find()
