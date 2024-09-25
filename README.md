@@ -16,6 +16,8 @@
 - [Repository structure](#repo)
 - [Functionalities](#functionalities)
 - [Installation](#installation)
+    - [Vim-Plug](#vimplug)
+    - [Packer](#packer)
 - [Commands](#commands)
 - [Setup](#setup)
 
@@ -58,7 +60,7 @@ java-maven-test.nvim/
 * Install using you plugin manager
 
 
-`Vim-Plug`  
+#### Vim - Plug :star: <a name="vimplug"></a> ####
 ```lua
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -68,9 +70,9 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'jkeresman01/java-maven-test.nvim'
 ```
 
-`Packer`
-```lua
+#### Packer :star: <a name="packer"></a> ####
 
+```lua
 use {
   'nvim-telescope/telescope.nvim', tag = '0.1.8',
 -- or                            , branch = '0.1.x',
