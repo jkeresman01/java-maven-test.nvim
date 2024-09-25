@@ -28,29 +28,31 @@ This Neovim plugin, java-maven-test.nvim, integrates with telescope.nvim and nvi
 
 [![asciicast](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4.svg)](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4)
 
-### Repository structure :open_file_folder: <a name="repo-structure"></a> ###
+## Repository structure :open_file_folder: <a name="functionalities"></a> ##
 
 ```bash
+
 java-maven-test.nvim/
 ├── LICENSE
 ├── lua
 │   └── java-maven-test
 │       ├── commands.lua    # Commands exposed to Neovim
-│       ├── find.lu         # UI logic (pickers and layout)
+│       ├── ui.lua          # UI logic (pickers and layout)
 │       ├── init.lua        # Plugin entry point
 │       ├── mvn.lua         # Maven-related logic
 │       └── util.lua        # Utility functions
 └── README.md
+
 ```
 ***
 
-### Functionalities :pick: <a name="functionalities"></a> ###
+## Functionalities :pick: <a name="functionalities"></a> ##
 
 - [x] Execute test case under the cursor
 - [x] Execute all test in a given class
 - [x] Fuzzy find trough all tests in a class and pick which one to execute
 
-### Installation :star: <a name="installation"></a> ###
+## Installation :star: <a name="installation"></a> ##
 * Make sure you have Neovim v0.9.0 or greater. :exclamation:
 * Dependecies: treesiter && telescope && plenary (telescope dep)
 * Install using you plugin manager
@@ -82,17 +84,16 @@ use {
 ```
 ***
 
-### Commands :musical_keyboard: <a name="commands"></a> ###
+## Commands :musical_keyboard: <a name="commands"></a> ##
 
 Following commands have been exposed to Neovim:
 
 `Commands`  
 ```lua
 
-:Maven test    -- Launch picker (select your test case from UI)
-:Maven test    -- Execute test at cursor
-:Maven test    -- Execute all tests in class
-
+:MavenTest                  -- Launch picker (select your test case from UI)
+:MavenTestAtCursor test     -- Execute test at cursor
+:MavenTestAllInClass        -- Execute all tests in class
 
 ```
 
