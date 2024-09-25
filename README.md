@@ -13,7 +13,7 @@
 
 - [The problem](#problem)
 - [The solution](#solution)
-- [Repository structure] (#repo)
+- [Repository structure](#repo)
 - [Functionalities](#functionalities)
 - [Installation](#installation)
 - [Commands](#commands)
