@@ -9,7 +9,7 @@
 
 </div>
 
-### Table of Contents ### 
+## Table of Contents ##
 
 - [The problem](#problem)
 - [The solution](#solution)
@@ -19,16 +19,16 @@
 - [Commands](#commands)
 - [Setup](#setup)
 
-###  The problem :warning: <a name="problem"></a> ###
+##  The problem :warning: <a name="problem"></a> ##
 You open Neovim, your preferred editor, with the intention of running tests without having to leave your preferred environment.
 
-### The solution :trophy: <a name="solution"></a> ### 
+## The solution :trophy: <a name="solution"></a> ##
 
 This Neovim plugin, java-maven-test.nvim, integrates with telescope.nvim and nvim-treesitter to facilitate interactive fuzzy searching and execution of Java tests within a class.
 
 [![asciicast](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4.svg)](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4)
 
-### Repository structure :open_file_folder: <a name="repo"></a> ### 
+## Repository structure :open_file_folder: <a name="repo"></a> ##
 ```bash
 
 java-maven-test.nvim/
@@ -45,14 +45,14 @@ java-maven-test.nvim/
 ```
 ***
 
-### Functionalities :pick: <a name="functionalities"></a> ### 
+## Functionalities :pick: <a name="functionalities"></a> ##
 
 - [x] Execute test case under the cursor
 - [x] Execute all test in a given class
 - [x] Fuzzy find trough all tests in a class and pick which one to execute
 ***
 
-###  Installation :star: <a name="installation"></a> ###
+##  Installation :star: <a name="installation"></a> ##
 * Make sure you have Neovim v0.9.0 or greater. :exclamation:
 * Dependecies: treesiter && telescope && plenary (telescope dep)
 * Install using you plugin manager
@@ -83,7 +83,7 @@ use {
 ```
 ***
 
-### Commands :musical_keyboard: <a name="commands"></a> ###
+## Commands :musical_keyboard: <a name="commands"></a> ##
 
 Following commands have been exposed to Neovim:
 
@@ -96,7 +96,7 @@ Following commands have been exposed to Neovim:
 
 ```
 
-### Setup :wrench: <a name="setup"></a> ### 
+## Setup :wrench: <a name="setup"></a> ##
 
 Set the keymapings as you see fit, here is one example:
 
