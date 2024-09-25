@@ -1,11 +1,13 @@
 local M = {}
 
+
 -- Helper function to get the current buffer number.
 --
 -- @return: The current buffer number.
 local function get_current_buffer()
     return vim.api.nvim_get_current_buf()
 end
+
 
 -- Helper function to get a Tree-sitter parser for the given buffer and language.
 --
@@ -16,6 +18,7 @@ end
 local function get_parser(bufnr, language)
     return vim.treesitter.get_parser(bufnr, language)
 end
+
 
 -- Helper function to execute a Tree-sitter query and return captured nodes.
 --
@@ -39,6 +42,7 @@ local function get_captured_nodes(bufnr, tree, query_str, capture_name)
     return captured_texts
 end
 
+
 -- Retrieves all test methods from the current Java file.
 --
 -- @return: A list of test method names.
@@ -58,6 +62,7 @@ function M.get_test_methods()
     return get_captured_nodes(bufnr, tree, test_methods_query, "test_name")
 end
 
+
 -- Retrieves the class name from the current Java class.
 --
 -- @return: The name of the Java class.
@@ -74,6 +79,7 @@ function M.get_java_class()
 
     return get_captured_nodes(bufnr, tree, class_name_query, "class_name")[1]
 end
+
 
 -- Validates the given test name to match a specific pattern.
 --
