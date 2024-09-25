@@ -13,8 +13,10 @@
 
 - [The problem](#problem)
 - [The solution](#solution)
+- [Repository structure] (#repo-structure)
 - [Functionalities](#functionalities)
 - [Installation](#installation)
+- [Commands](#commands)
 - [Key - mappings](#keymapings)
 
 ## The problem :warning: <a name="problem"></a> ##
@@ -25,6 +27,22 @@ You open Neovim, your preferred editor, with the intention of running tests with
 This Neovim plugin, java-maven-test.nvim, integrates with telescope.nvim and nvim-treesitter to facilitate interactive fuzzy searching and execution of Java tests within a class.
 
 [![asciicast](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4.svg)](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4)
+
+### Repository structure :open_file_folder: <a name="repo-structure"></a> ###
+
+```bash
+java-maven-test.nvim/
+├── LICENSE
+├── lua
+│   └── java-maven-test
+│       ├── commands.lua    # Commands exposed to Neovim
+│       ├── find.lu         # UI logic (pickers and layout)
+│       ├── init.lua        # Plugin entry point
+│       ├── mvn.lua         # Maven-related logic
+│       └── util.lua        # Utility functions
+└── README.md
+```
+***
 
 ### Functionalities :pick: <a name="functionalities"></a> ###
 
@@ -64,18 +82,33 @@ use {
 ```
 ***
 
-## Key - mapings :musical_keyboard: <a name="keymapings"></a> ##
+### Commands :musical_keyboard: <a name="commands"></a> ###
 
-Set the keymapings as you see fit, here is one example:
+Following commands have been exposed to Neovim:
+
+`Commands`  
+```lua
+
+:Maven test    -- Launch picker (select your test case from UI)
+:Maven test    -- Execute test at cursor
+:Maven test    -- Execute all tests in class
+
+
+```
+
+## Key mapings :musical_keyboard: <a name="keymapings"></a> ##
+
+Set the keymapings as you see fit, here is one setup example:
 
 ```lua
-local tests = require("java-maven-test")
-local mvn   = require("java-maven-test.mvn")
+-- Setup for java-maven-test plugin
+require('java-maven-test').setup()
 
-vim.keymap.set("n", "<leader>ft", function() tests.find() end) 
+-- Define key mappings for executing tests
+vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>MavenTest<CR>')
+vim.api.nvim_set_keymap('n', '<leader>rt', '<cmd>MavenTestAtCursor<CR>')
+vim.api.nvim_set_keymap('n', '<leader>ra', '<cmd>MavenTestAllInClass<CR>')
 
-vim.keymap.set("n", "<leader>rt", function() mvn.execute_test_at_cursor() end)     
-vim.keymap.set("n", "<leader>ra", function() mvn.execute_all_tests_in_class() end)  
 ```
 ***
 
