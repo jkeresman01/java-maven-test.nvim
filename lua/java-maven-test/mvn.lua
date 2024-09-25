@@ -5,7 +5,7 @@ local M = {}
 
 -- Executes a Maven test command for a specific test method within a Java class.
 --
--- @param test_name (string) - The name of the test method
+-- @param test_name: The name of the test method
 local function execute_test(test_name)
     local class_name = util.get_java_class()
 
@@ -30,7 +30,7 @@ end
 
 -- Executes a specific test method by its name.
 --
--- @param test_name (string) - The name of the test method to run.
+-- @param test_name: The name of the test method to run.
 function M.execute_selected_test(test_name)
     if util.is_test_name_valid(test_name) then
         execute_test(test_name)

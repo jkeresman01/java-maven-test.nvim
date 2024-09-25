@@ -2,29 +2,29 @@ local M = {}
 
 -- Helper function to get the current buffer number.
 --
--- @return - The current buffer number.
+-- @return: The current buffer number.
 local function get_current_buffer()
     return vim.api.nvim_get_current_buf()
 end
 
 -- Helper function to get a Tree-sitter parser for the given buffer and language.
 --
--- @param bufnr (number)
--- @param language (string)
+-- @param bufnr
+-- @param language
 --
--- @return  - The Tree-sitter parser.
+-- @return: The Tree-sitter parser.
 local function get_parser(bufnr, language)
     return vim.treesitter.get_parser(bufnr, language)
 end
 
 -- Helper function to execute a Tree-sitter query and return captured nodes.
 --
--- @param bufnr (number) - The buffer number.
--- @param tree (userdata) - The parsed syntax tree.
--- @param query_str (string) - The Tree-sitter query string.
--- @param capture_name (string) - The name of the capture to return.
+-- @param bufnr: The buffer number.
+-- @param tree: The parsed syntax tree.
+-- @param query_str: The Tree-sitter query string.
+-- @param capture_name: The name of the capture to return.
 --
--- @return (table) - A list of captured nodes text.
+-- @return: A list of captured nodes text.
 local function get_captured_nodes(bufnr, tree, query_str, capture_name)
     local query = vim.treesitter.query.parse("java", query_str)
     local captured_texts = {}
@@ -41,7 +41,7 @@ end
 
 -- Retrieves all test methods from the current Java file.
 --
--- @return (table) - A list of test method names.
+-- @return: A list of test method names.
 function M.get_test_methods()
     local bufnr = get_current_buffer()
     local parser = get_parser(bufnr, "java")
@@ -60,7 +60,7 @@ end
 
 -- Retrieves the class name from the current Java class.
 --
--- @return (string) - The name of the Java class.
+-- @return: The name of the Java class.
 function M.get_java_class()
     local bufnr = get_current_buffer()
     local parser = get_parser(bufnr, "java")
@@ -77,9 +77,9 @@ end
 
 -- Validates the given test name to match a specific pattern.
 --
--- @param test_name (string) - The name of the test function to validate.
+-- @param test_name: The name of the test function to validate.
 --
--- @return (boolean) - True if the test name is valid, false otherwise
+-- @return: True if the test name is valid, false otherwise
 function M.is_test_name_valid(test_name)
     return string.match(test_name, "%l*test%u*") or string.match(test_name, "%u*Test%l*")
 end
