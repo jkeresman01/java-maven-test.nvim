@@ -13,7 +13,7 @@
 
 - [The problem](#problem)
 - [The solution](#solution)
-- [Repository structure] (#repo-structure)
+- [Repository structure] (#repo)
 - [Functionalities](#functionalities)
 - [Installation](#installation)
 - [Commands](#commands)
@@ -28,7 +28,7 @@ This Neovim plugin, java-maven-test.nvim, integrates with telescope.nvim and nvi
 
 [![asciicast](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4.svg)](https://asciinema.org/a/YJnUsr3ujc1GHgoRsXGZWxeS4)
 
-## Repository structure :open_file_folder: <a name="repo-structure"></a> ##
+## Repository structure :open_file_folder: <a name="repo"></a> ##
 
 ```bash
 
