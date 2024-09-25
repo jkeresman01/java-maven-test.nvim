@@ -2,5 +2,4 @@ column_width = 100
 indent_type = "Spaces"
 indent_width = 4
 quote_style = "AutoPreferDouble"
-line_ending = "Unix"
 extra_blank_lines = 2
