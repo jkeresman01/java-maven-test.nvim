@@ -60,7 +60,7 @@ java-maven-test.nvim/
 * Install using you plugin manager
 
 
-#### Vim - Plug :star: <a name="vimplug"></a> ####
+#### Vim - Plug <a name="vimplug"></a> ####
 ```lua
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -70,7 +70,7 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'jkeresman01/java-maven-test.nvim'
 ```
 
-#### Packer :star: <a name="packer"></a> ####
+#### Packer <a name="packer"></a> ####
 
 ```lua
 use {
