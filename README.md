@@ -17,7 +17,7 @@
 - [Functionalities](#functionalities)
 - [Installation](#installation)
 - [Commands](#commands)
-- [Key - mappings](#keymapings)
+- [Setup](#setup)
 
 ## The problem :warning: <a name="problem"></a> ##
 You open Neovim, your preferred editor, with the intention of running tests without having to leave your preferred environment.
@@ -93,24 +93,21 @@ Following commands have been exposed to Neovim:
 ```lua
 
 :MavenTest                  -- Launch picker (select your test case from UI)
-:MavenTestAtCursor test     -- Execute test at cursor
+:MavenTestAtCursor          -- Execute test at cursor
 :MavenTestAllInClass        -- Execute all tests in class
 
 ```
 
-## Key mapings :musical_keyboard: <a name="keymapings"></a> ##
+## Setup  :musical_keyboard: <a name="setup"></a> ##
 
 Set the keymapings as you see fit, here is one setup example:
 
 ```lua
--- Setup for java-maven-test plugin
 require('java-maven-test').setup()
 
--- Define key mappings for executing tests
 vim.keymap.set("n", "<leader>ft", "<cmd>MavenTest<CR>")
 vim.keymap.set("n", "<leader>rt", "<cmd>MavenTestAtCursor<CR>")
 vim.keymap.set("n", "<leader>ra", "<cmd>MavenTestAllInClass<CR>")
-
 ```
 ***
 
