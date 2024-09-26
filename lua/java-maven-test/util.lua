@@ -90,6 +90,10 @@ end
 --
 -- @return: True if the test name is valid, false otherwise
 function M.is_test_name_valid(test_name)
+    if type(test_name) == "table" then
+        test_name = table.concat(test_name, " ")
+    end
+
     return string.match(test_name, "%l*test%u*") or string.match(test_name, "%u*Test%l*")
 end
 
