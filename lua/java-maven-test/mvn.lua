@@ -7,7 +7,7 @@ local M = {}
 -- Executes a Maven test command for a specific test method within a Java class.
 --
 -- @param test_name: The name of the test method which to execute
-local function execute_test(test_name)
+function M.execute_test(test_name)
     local class_name = util.get_java_class()
 
     local mvn_test_command = string.format("mvn test -Dtest=%s#%s", class_name, test_name)

@@ -30,7 +30,7 @@ local function execute_selected_test(prompt_bufnr)
     local selected_test_case = action_state.get_selected_entry()
 
     if selected_test_case and util.is_test_name_valid(selected_test_case) then
-        mvn.execute_selected_test(selected_test_case.value)
+        mvn.execute_test(selected_test_case.value)
     end
 end
 
