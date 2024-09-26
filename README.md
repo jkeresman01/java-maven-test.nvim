@@ -40,6 +40,7 @@ java-maven-test.nvim/
 │       ├── commands.lua    # Commands exposed to Neovim
 │       ├── ui.lua          # UI logic (pickers and layout)
 │       ├── init.lua        # Plugin entry point
+│       ├── notify.lua      # Notification-related logic
 │       ├── mvn.lua         # Maven-related logic
 │       └── util.lua        # Utility functions
 └── README.md
