@@ -30,7 +30,7 @@ end
 -- Executes all test methods within the current Java class.
 function M.execute_all_tests_in_class()
     local test_methods = util.get_test_methods()
-    if not next(test_methods) == nil then
+    if #test_methods > 0 then
         execute_test("")
     end
 end
