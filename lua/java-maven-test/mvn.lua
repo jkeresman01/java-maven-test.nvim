@@ -14,7 +14,6 @@ function M.execute_test(test_name)
 
     vim.fn.jobstart(mvn_test_command, {
         stdout_buffered = true,
-        stderr_buffered = true,
 
         on_stdout = function(_, output, _)
             if output then
