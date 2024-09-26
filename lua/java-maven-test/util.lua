@@ -1,3 +1,5 @@
+local ts_utils = require("nvim-treesitter.ts_utils")
+
 local M = {}
 
 -- Helper function to get the current buffer number.
@@ -73,6 +75,13 @@ function M.get_java_class()
     ]]
 
     return get_captured_nodes(bufnr, tree, class_name_query, "class_name")[1]
+end
+
+-- Function to get the test name at the cursor
+function M.get_test_name_at_cursor()
+    local bufnr = get_current_buffer()
+    local node = ts_utils.get_node_at_cursor()
+    return vim.treesitter.get_node_text(node, bufnr)
 end
 
 -- Validates the given test name to match a specific pattern.

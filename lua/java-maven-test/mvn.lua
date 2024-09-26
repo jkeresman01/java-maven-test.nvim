@@ -1,5 +1,6 @@
+local notify = require("java-maven-test.notify")
+
 local util = require("java-maven-test.util")
-local ts_utils = require("nvim-treesitter.ts_utils")
 
 local M = {}
 
@@ -12,18 +13,44 @@ local function execute_test(test_name)
     vim.cmd("vsplit term://bash")
 
     local mvn_test_command = string.format("mvn test -Dtest=%s#%s", class_name, test_name)
-    vim.fn.termopen(mvn_test_command)
+
+    -- Execute the command and handle stdout/stderr
+    vim.fn.jobstart(mvn_test_command, {
+        stdout_buffered = true,
+        stderr_buffered = true,
+
+        -- Handle stdout (success/failure output)
+        on_stdout = function(_, data, _)
+            if data then
+                notify.handle_test_output(data, test_name)
+            end
+        end,
+
+        -- Handle stderr (errors)
+        on_stderr = function(_, data, _)
+            if data then
+                notify.handle_test_error(data)
+            end
+        end,
+
+        -- Handle exit (when the test process finishes)
+        on_exit = function(_, exit_code, _)
+            if exit_code == 0 then
+                notify.test_completed_successfully()
+            else
+                notify.test_failed(exit_code)
+            end
+        end,
+    })
 end
 
--- Executes the test method at the current cursor position in the buffer.
+-- Function to execute the test at the cursor (using Treesitter)
 function M.execute_test_at_cursor()
-    local bufnr = vim.api.nvim_get_current_buf()
-    local node = ts_utils.get_node_at_cursor()
-
-    local test_name = vim.treesitter.get_node_text(node, bufnr)
-
+    local test_name = util.get_test_name_at_cursor()
     if util.is_test_name_valid(test_name) then
-        execute_test(test_name)
+        execute_mvn_test(test_name)
+    else
+        notify.invalid_test_name(test_name)
     end
 end
 
@@ -32,6 +59,8 @@ function M.execute_all_tests_in_class()
     local test_methods = util.get_test_methods()
     if #test_methods > 0 then
         execute_test("")
+    else
+        notify.no_tests_found()
     end
 end
 
