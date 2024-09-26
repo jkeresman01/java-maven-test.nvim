@@ -52,6 +52,7 @@ java-maven-test.nvim/
 - [x] Execute test case under the cursor
 - [x] Execute all test in a given class
 - [x] Fuzzy find trough all tests in a class and pick which one to execute
+- [x] Notifications message about test results
 ***
 
 ##  Installation :star: <a name="installation"></a> ##
