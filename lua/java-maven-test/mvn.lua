@@ -16,15 +16,9 @@ function M.execute_test(test_name)
         stdout_buffered = true,
         stderr_buffered = true,
 
-        on_stdout = function(_, data, _)
-            if data then
-                notify.handle_test_output(data, test_name)
-            end
-        end,
-
-        on_stderr = function(_, data, _)
-            if data then
-                notify.handle_test_error(data)
+        on_stdout = function(_, output, _)
+            if output then
+                notify.handle_test_output(output, test_name)
             end
         end,
 

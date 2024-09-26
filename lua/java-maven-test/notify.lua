@@ -16,19 +16,14 @@ function M.invalid_test_name(test_name)
 end
 
 -- Function to handle test output (stdout)
-function M.handle_test_output(data, test_name)
-    for _, line in pairs(data) do
+function M.handle_test_output(output, test_name)
+    for _, line in pairs(output) do
         if string.find(line, "BUILD SUCCESS") then
             vim.notify("Test " .. test_name .. " passed successfully!", vim.log.levels.INFO)
         elseif string.find(line, "BUILD FAILURE") then
             vim.notify("Test " .. test_name .. " failed!", vim.log.levels.ERROR)
         end
     end
-end
-
--- Function to handle errors (stderr)
-function M.handle_test_error(data)
-    vim.notify("Error while executing test: " .. table.concat(data, "\n"), vim.log.levels.ERROR)
 end
 
 -- Function to notify when a test completes successfully
