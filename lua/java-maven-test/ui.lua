@@ -9,7 +9,6 @@ local util = require("java-maven-test.util")
 
 local M = {}
 
-
 -- Function to create test entries for the picker.
 --
 -- @param test_name: The name of the test to create an entry for.
@@ -23,7 +22,6 @@ local function create_entry(test_name)
     }
 end
 
-
 -- Function to execute the selected test case.
 --
 -- @param prompt_bufnr: The buffer number for the current prompt.
@@ -36,7 +34,6 @@ local function execute_selected_test(prompt_bufnr)
     end
 end
 
-
 -- Function to configure the layout for the picker.
 --
 -- @return: A table containing the height and width configuration for the layout.
@@ -48,7 +45,6 @@ local function get_layout_config()
         },
     }
 end
-
 
 -- Function to create picker options.
 --
@@ -75,13 +71,11 @@ local function get_picker_options(tests)
     }
 end
 
-
 -- Function to find and display test cases.
 function M.select_test_to_execute()
     local tests = util.get_test_methods()
     local opts = get_layout_config()
     pickers.new(opts, get_picker_options(tests)):find()
 end
-
 
 return M

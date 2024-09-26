@@ -3,7 +3,6 @@ local ui = require("java-maven-test.ui")
 
 local M = {}
 
-
 -- Function that registers all the commands exposed to Neovim
 function M.register()
     vim.api.nvim_create_user_command("MavenTest", function()
@@ -24,6 +23,5 @@ function M.register()
         desc = "Run all tests in the current Java class",
     })
 end
-
 
 return M

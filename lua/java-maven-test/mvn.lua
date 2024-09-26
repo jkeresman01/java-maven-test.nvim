@@ -3,7 +3,6 @@ local ts_utils = require("nvim-treesitter.ts_utils")
 
 local M = {}
 
-
 -- Executes a Maven test command for a specific test method within a Java class.
 --
 -- @param test_name: The name of the test method which to execute
@@ -15,7 +14,6 @@ local function execute_test(test_name)
     local mvn_test_command = string.format("mvn test -Dtest=%s#%s", class_name, test_name)
     vim.fn.termopen(mvn_test_command)
 end
-
 
 -- Executes the test method at the current cursor position in the buffer.
 function M.execute_test_at_cursor()
@@ -29,7 +27,6 @@ function M.execute_test_at_cursor()
     end
 end
 
-
 -- Executes all test methods within the current Java class.
 function M.execute_all_tests_in_class()
     local test_methods = util.get_test_methods()
@@ -37,6 +34,5 @@ function M.execute_all_tests_in_class()
         execute_test("")
     end
 end
-
 
 return M
