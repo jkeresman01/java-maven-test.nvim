@@ -71,11 +71,12 @@ local function get_picker_options(tests)
     }
 end
 
--- Function to find and display test cases.
-function M.select_test_to_execute()
+-- Function to run java test method picker
+function M.show_java_test_method_picker()
     local tests = util.get_test_methods()
-    local opts = get_layout_config()
-    pickers.new(opts, get_picker_options(tests)):find()
+    local layout_conf = get_layout_config()
+    local picker_opts = get_picker_options(tests)
+    pickers.new(layout_conf, picker_opts):find()
 end
 
 return M
