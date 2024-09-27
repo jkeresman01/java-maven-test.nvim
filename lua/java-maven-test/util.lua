@@ -10,8 +10,12 @@ local function get_parser(bufnr, language)
     return vim.treesitter.get_parser(bufnr, language)
 end
 
-local function get_captured_nodes(bufnr, tree, query_str, capture_name)
+local function get_captured_nodes(query_str, capture_name)
     local query = vim.treesitter.query.parse("java", query_str)
+    local bufnr = get_current_buffer()
+    local parser = get_parser(bufnr, "java")
+    local tree = parser:parse()[1]
+
     local captured_texts = {}
 
     for id, node in query:iter_captures(tree:root(), bufnr, 0, -1) do
@@ -25,10 +29,6 @@ local function get_captured_nodes(bufnr, tree, query_str, capture_name)
 end
 
 function M.get_test_methods()
-    local bufnr = get_current_buffer()
-    local parser = get_parser(bufnr, "java")
-    local tree = parser:parse()[1]
-
     local test_methods_query = [[
         (method_declaration
           (modifiers
@@ -37,21 +37,17 @@ function M.get_test_methods()
           (identifier) @test_name)
     ]]
 
-    return get_captured_nodes(bufnr, tree, test_methods_query, "test_name")
+    return get_captured_nodes(test_methods_query, "test_name")
 end
 
 function M.get_java_class()
-    local bufnr = get_current_buffer()
-    local parser = get_parser(bufnr, "java")
-    local tree = parser:parse()[1]
-
     local class_name_query = [[
         (class_declaration
           name: (identifier) @class_name
         )
     ]]
 
-    return get_captured_nodes(bufnr, tree, class_name_query, "class_name")[1]
+    return get_captured_nodes(class_name_query, "class_name")[1]
 end
 
 function M.get_test_name_at_cursor()
