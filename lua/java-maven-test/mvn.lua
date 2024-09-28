@@ -5,7 +5,6 @@ local M = {}
 
 function M.execute_test(test_name)
     local class_name = util.get_java_class()
-
     local mvn_test_command = string.format("mvn test -Dtest=%s#%s", class_name, test_name)
 
     vim.fn.jobstart(mvn_test_command, {
