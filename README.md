@@ -69,19 +69,22 @@ Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter'
 
+Plug 'rcarriga/nvim-notify'
+
 Plug 'jkeresman01/java-maven-test.nvim'
 ```
 
 #### Packer <a name="packer"></a> ####
 
 ```lua
-use {
+ use {
   'nvim-telescope/telescope.nvim', tag = '0.1.8',
 -- or                            , branch = '0.1.x',
-  requires = { {'nvim-lua/plenary.nvim'} }
-}
+   requires = { {'nvim-lua/plenary.nvim'} }
+ }
 
  use 'nvim-treesitter/nvim-treesitter'
+ use 'rcarriga/nvim-notify'
 
  use 'jkeresman01/java-maven-test.nvim'
 ```
