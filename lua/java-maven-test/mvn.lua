@@ -3,33 +3,18 @@ local util = require("java-maven-test.util")
 
 local M = {}
 
--- Executes a specific test method using Maven
+-- Executes specified test method using maven
 --
 -- @param test_name The name of the test method to execute
 --
--- @return nil
 function M.execute_test(test_name)
     local class_name = util.get_java_class()
     local mvn_test_command = string.format("mvn test -Dtest=%s#%s", class_name, test_name)
-
-    vim.fn.jobstart(mvn_test_command, {
-        stdout_buffered = true,
-
-        on_stdout = function(_, output, _)
-            if output then
-                notify.handle_test_output(output, test_name)
-            end
-        end,
-    })
+    util.start_job()
 end
 
 -- Executes the test method at the current cursor position
 --
--- This function retrieves the test name under the cursor and validates it.
--- If the test name is valid, it will execute the test, otherwise, it will
--- display an error notification.
---
--- @return nil
 function M.execute_test_at_cursor()
     local test_name = util.get_test_name_at_cursor()
 
@@ -40,11 +25,14 @@ function M.execute_test_at_cursor()
     end
 end
 
+-- Executes specified test suite using maven
+-- 
+function M.execute_test_suite(test_suite)
+    local mvn_test_command = string.format("mvn test -DsuiteXmlFile=%s", test_suite)
+    util.start_job(mvn_test_command)
+end
+
 -- Executes all tests in the current Java class
---
--- If there are any test methods in the current Java class, it will run all
--- the tests by passing an empty string for the test method. If no tests are found,
--- it will notify the user.
 --
 -- @return nil
 function M.execute_all_tests_in_class()

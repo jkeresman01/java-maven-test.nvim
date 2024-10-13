@@ -4,7 +4,6 @@ local M = {}
 
 -- Displays a warning when no test is selected
 --
--- @return nil
 function M.no_test_selected()
     vim.notify("No test selected.", vim.log.levels.WARN)
 end
@@ -20,7 +19,6 @@ end
 --
 -- @param test_name The name of the invalid test
 --
--- @return nil
 function M.invalid_test_name(test_name)
     vim.notify("Invalid test name: " .. test_name, vim.log.levels.ERROR)
 end
@@ -30,7 +28,6 @@ end
 -- @param output A table containing the output lines of the test execution
 -- @param test_name The name of the test that was executed
 --
--- @return nil
 function M.handle_test_output(output, test_name)
     for _, line in pairs(output) do
         if util.is_test_result_success(line) then
