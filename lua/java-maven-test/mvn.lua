@@ -6,7 +6,7 @@ local M = {}
 function M.execute_test(test_name)
     local class_name = util.get_java_class()
     local mvn_test_command = string.format("mvn test -Dtest=%s#%s", class_name, test_name)
-    util.start_job()
+    util.start_job(test_name)
 end
 
 function M.execute_test_at_cursor()
