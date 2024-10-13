@@ -23,7 +23,7 @@ function M.invalid_test_name(test_name)
     vim.notify("Invalid test name: " .. test_name, vim.log.levels.ERROR)
 end
 
--- Handles the test output and displays appropriate notifications based on the test result
+-- Displays appropriate notifications based on the test result
 --
 -- @param output A table containing the output lines of the test execution
 -- @param test_name The name of the test that was executed
