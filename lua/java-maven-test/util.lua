@@ -2,14 +2,14 @@ local ts_utils = require("nvim-treesitter.ts_utils")
 
 local M = {}
 
--- Get the current buffer number
+-- Gets the current buffer number
 --
 -- @return The current buffer number
 local function get_current_buffer()
     return vim.api.nvim_get_current_buf()
 end
 
--- Get the Treesitter parser for the specified buffer and language
+-- Gets the Treesitter parser for the specified buffer and language
 --
 -- @param bufnr The buffer number
 -- @param language The programming language
@@ -19,7 +19,7 @@ local function get_parser(bufnr, language)
     return vim.treesitter.get_parser(bufnr, language)
 end
 
--- Get captured nodes matching the query and capture name
+-- Gets captured nodes matching the query and capture name
 --
 -- @param query_str The Treesitter query string to match specific nodes
 -- @param capture_name The name of the capture group to look for in the query
@@ -43,7 +43,7 @@ local function get_captured_nodes(query_str, capture_name)
     return captured_texts
 end
 
--- Get all test methods annotated with @Test in the current Java file
+-- Gets all test methods annotated with @Test in the current Java file
 --
 -- @return A list of test method names found in the current Java file
 function M.get_test_methods()
@@ -58,7 +58,7 @@ function M.get_test_methods()
     return get_captured_nodes(test_methods_query, "test_name")
 end
 
--- Get the class name from the current Java file
+-- Gets the class name from the current Java file
 --
 -- @return The class name found in the current Java file
 function M.get_java_class()
@@ -88,7 +88,7 @@ function M.start_job(mvn_command)
     })
 end
 
--- Get the test suites located under /src/test/resources or src/test directory
+-- Gets the test suites located under /src/test/resources or src/test directory
 --
 function M.get_test_suites()
     local find_test_suites_command =
@@ -111,7 +111,7 @@ function M.get_test_suites()
     return test_suites
 end
 
--- Get the name of the test at the current cursor position
+-- Getss the name of the test at the current cursor position
 --
 -- @return The name of the test method at the cursor position
 function M.get_test_name_at_cursor()
