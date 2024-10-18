@@ -116,7 +116,7 @@ vim.keymap.set("n", "<leader>ra", "<cmd>MavenTestAllInClass<CR>")
 ```
 ***
 
-| Key - map     | Action                                                             |
+| Keybindings   | Action                                                             |
 |---------------|--------------------------------------------------------------------|
 | `<leader>rt`  | Execute test under the cursor                                      |
 | `<leader>ra`  | Execute all tests in currently opened class                        |
